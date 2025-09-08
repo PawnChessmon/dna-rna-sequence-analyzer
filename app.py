@@ -3,7 +3,7 @@ from Bio import SeqIO
 from collections import Counter
 import matplotlib.pyplot as plt
 from io import StringIO
-
+#
 # --- Sequence Functions ---
 def gc_content(seq):
     g = seq.count("G")

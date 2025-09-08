@@ -1,0 +1,6 @@
+dna-rna-sequence-analyzer/
+│── app.py                # main Streamlit app
+│── requirements.txt      # dependencies
+│── README.md             # project description
+│── example.fasta         # small test FASTA sequence
+│── .gitignore            # ignore cache/venv files

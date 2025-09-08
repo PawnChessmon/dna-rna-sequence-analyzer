@@ -9,9 +9,7 @@ A simple interactive Streamlit web app to analyze DNA/RNA sequences from FASTA f
 - Detect **open reading frames (ORFs)** ≥100 bp
 
 ## Warning
-- Use incognito mode on Safari for iPhone to avoid port errors.
-- Mozilla for iPhone and Safari on Mac works alright.
-
+- Web app only.
   
 ## Demo
 Run locally:

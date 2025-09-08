@@ -1,5 +1,4 @@
 biopython
 streamlit
 matplotlib
-io
 collections

@@ -50,7 +50,7 @@ def find_orfs(seq, min_len=100):
 st.title("DNA/RNA Sequence Analyzer")
 st.markdown(
     """
-**DNA/RNA Sequence Analyzer** – Built an interactive Streamlit app in Python that analyzes DNA/RNA sequences from FASTA files.  
+**DNA/RNA Sequence Analyzer** – An interactive Streamlit app in Python that automatically detects and analyzes DNA/RNA sequences from FASTA files.  
 Features include GC content calculation, codon usage profiling with visualizations, and open reading frame (ORF) detection.  
 Deployed via GitHub and Streamlit Cloud.
 """

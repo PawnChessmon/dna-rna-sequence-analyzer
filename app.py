@@ -33,7 +33,7 @@ def find_orfs(seq, min_len=100):
     return orfs
 
 # --- Streamlit App ---
-st.title("🧬 DNA/RNA Sequence Analyzer")
+st.title("DNA/RNA Sequence Analyzer")
 
 uploaded = st.file_uploader("Upload a FASTA file", type=["fasta", "fa"])
 if uploaded:

@@ -15,8 +15,16 @@ def codon_usage(seq):
     return Counter(codons)
 
 def find_orfs(seq, min_len=100):
-    stop_codons = ["TAA", "TAG", "TGA"]
-    start_codon = "ATG"
+    seq = seq.upper()
+    is_rna = "U" in seq and "T" not in seq
+
+    if is_rna:
+        start_codon = "AUG"
+        stop_codons = ["UAA", "UAG", "UGA"]
+    else:
+        start_codon = "ATG"
+        stop_codons = ["TAA", "TAG", "TGA"]
+
     orfs = []
     for frame in range(3):
         i = frame
@@ -27,7 +35,13 @@ def find_orfs(seq, min_len=100):
                     if seq[j:j+3] in stop_codons:
                         length = j+3 - i
                         if length >= min_len:
-                            orfs.append((frame+1, i, j+3, length))
+                            orfs.append({
+                                "frame": frame+1,
+                                "start": i,
+                                "end": j+3,
+                                "length": length,
+                                "type": "RNA" if is_rna else "DNA"
+                            })
                         break
             i += 3
     return orfs
@@ -64,5 +78,8 @@ if uploaded:
     if not orfs:
         st.write("No ORFs found ≥100 bp.")
     else:
-        for frame, start, stop, length in orfs:
-            st.write(f"Frame {frame}: {start}-{stop} ({length} bp)")
+        for orf in orfs:
+            st.write(
+                f"Frame {orf['frame']}: {orf['start']}-{orf['end']} "
+                f"({orf['length']} bp, {orf['type']})"
+            )

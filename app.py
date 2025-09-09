@@ -3,7 +3,8 @@ from Bio import SeqIO
 from collections import Counter
 import matplotlib.pyplot as plt
 from io import StringIO
-#
+import os
+
 # --- Sequence Functions ---
 def gc_content(seq):
     g = seq.count("G")
@@ -57,12 +58,20 @@ Deployed via GitHub and Streamlit Cloud.
 )
 
 uploaded = st.file_uploader("Upload a FASTA file", type=["fasta", "fa"])
-if uploaded:
-    # Convert uploaded file into StringIO for SeqIO
-    stringio = StringIO(uploaded.getvalue().decode("utf-8"))
-    record = next(SeqIO.parse(stringio, "fasta"))
+use_example = st.checkbox("Or use example.fasta provided with this app")
+
+# --- Load sequence ---
+if uploaded or use_example:
+    if use_example:
+        with open("example.fasta") as f:
+            record = next(SeqIO.parse(f, "fasta"))
+    else:
+        stringio = StringIO(uploaded.getvalue().decode("utf-8"))
+        record = next(SeqIO.parse(stringio, "fasta"))
+
     seq = str(record.seq).upper()
-    
+
+    # --- Results ---
     st.subheader("Sequence Info")
     st.write(f"ID: {record.id}")
     st.write(f"Length: {len(seq)} bp")

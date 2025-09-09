@@ -8,6 +8,8 @@ A simple interactive Streamlit web app to analyze DNA/RNA sequences from FASTA f
 - Show **codon usage** (bar chart)
 - Detect **open reading frames (ORFs)** ≥100 bp
 - Tested on SAFARI FOR MAC Version 26.0 (21622.1.22.11.14)
+
+Try it on	https://pawnchessmon-dna-rna-sequence-analyzer-app-coddgo.streamlit.app 
   
 ## Demo
 Run locally:

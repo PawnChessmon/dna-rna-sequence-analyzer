@@ -58,7 +58,7 @@ Deployed via GitHub and Streamlit Cloud.
 )
 
 uploaded = st.file_uploader("Upload a FASTA file", type=["fasta", "fa"])
-use_example = st.checkbox("Or use example.fasta provided with this app")
+use_example = st.checkbox("Or use example FASTA file provided with this app")
 
 # --- Load sequence ---
 if uploaded or use_example:

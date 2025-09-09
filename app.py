@@ -56,24 +56,6 @@ Deployed via GitHub and Streamlit Cloud.
 """
 )
 
-use_example = st.checkbox("Use example sequence")
-
-if uploaded or use_example:
-    if use_example:
-        seq = "ATGCGTACGTAGCTAGCTAGCTAGCTAA"
-        record_id = "Example_Sequence"
-    else:
-        stringio = StringIO(uploaded.getvalue().decode("utf-8"))
-        record = next(SeqIO.parse(stringio, "fasta"))
-        seq = str(record.seq).upper()
-        record_id = record.id
-
-    st.subheader("Sequence Info")
-    st.write(f"ID: {record_id}")
-    st.write(f"Length: {len(seq)} bp")
-    st.write(f"GC Content: {gc_content(seq)} %")
-
-
 uploaded = st.file_uploader("Upload a FASTA file", type=["fasta", "fa"])
 if uploaded:
     # Convert uploaded file into StringIO for SeqIO

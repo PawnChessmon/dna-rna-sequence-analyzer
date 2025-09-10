@@ -81,7 +81,7 @@ if uploaded or use_example:
     codons = codon_usage(seq)
     codon_df = {k: v for k, v in codons.items() if len(k) == 3}
     
-    fig, ax = plt.subplots(figsize=(10,4))
+    fig, ax = plt.subplots(figsize=(12,5))
     ax.bar(codon_df.keys(), codon_df.values())
     ax.set_title("Codon Usage")
     ax.set_xlabel("Codon")
